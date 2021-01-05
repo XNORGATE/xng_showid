@@ -10,16 +10,16 @@ AddEventHandler('ggg', function(target)
 	local tPlayer = ESX.GetPlayerFromId(_target)
 
      
-    MySQL.Async.fetchAll('SELECT * FROM users',
+    MySQL.Async.fetchAll('SELECT * FROM users where identifier = @idowner ',
  {
-	
+	['@idowner'] = xPlayer.identifier
  }, function (result)
 	for i=1, #result, 1 do
 	   local xPlayer1 = ESX.GetPlayerFromIdentifier(result[i].identifier)
 		if xPlayer1 then
 			TriggerClientEvent('ggg:showAnim', _source)
 			Wait(2000)
-			TriggerClientEvent('esx:showAdvancedNotification',_target ,'市政府' ,'身分證' ,'📃名字:'..result[i].name..'\n🌈生日:'..result[i].dateofbirth..'\n👨‍🦲性別:'..result[i].sex..'\n🔰職業:'..result[i].job ,'CHAR_HUMANDEFAULT' , 3)					
+			TriggerClientEvent('esx:showAdvancedNotification',_target ,'#請更改我' ,'身分證' ,'📃名字:'..result[i].name..'\n🎂生日:'..result[i].dateofbirth..'\n👨‍🦲性別:'..result[i].sex..'\n🔰職業:'..xPlayer.job.label ,'CHAR_HUMANDEFAULT' , 3)					
 			Wait(10)
 	    end
     end
