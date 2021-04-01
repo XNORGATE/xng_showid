@@ -15,11 +15,11 @@ AddEventHandler('ggg', function(target)
 	
  }, function (result)
 	for i=1, #result, 1 do
-	   local xPlayer1 = ESX.GetPlayerFromIdentifier(result[i].identifier)
+	   local xPlayer1 = ESX.GetPlayerFromIdentifier(result[1].identifier)
 		if xPlayer1 then
 			TriggerClientEvent('ggg:showAnim', _source)
 			Wait(2000)
-			TriggerClientEvent('esx:showAdvancedNotification',_target ,'市政府' ,'身分證' ,'📃名字:'..result[i].name..'\n🌈生日:'..result[i].dateofbirth..'\n👨‍🦲性別:'..result[i].sex..'\n🔰職業:'..result[i].job ,'CHAR_HUMANDEFAULT' , 3)					
+			TriggerClientEvent('esx:showAdvancedNotification',_target ,'市政府' ,'身分證' ,'📃名字:'..result[1].name..'\n🌈生日:'..result[1].dateofbirth..'\n👨‍🦲性別:'..result[1].sex..'\n🔰職業:'..result[1].job ,'CHAR_HUMANDEFAULT' , 3)					
 			Wait(10)
 	    end
     end
